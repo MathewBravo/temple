@@ -5,6 +5,14 @@ use clap::{Parser, Subcommand};
 pub struct Cli {
     #[command(subcommand)]
     pub command: Option<Commands>,
+
+    /// Increase the log verbosity
+    #[arg(short, long)]
+    verbose: bool,
+
+    /// Supress all non-error outputs
+    #[arg(short, long)]
+    quiet: bool,
 }
 
 #[derive(Subcommand)]

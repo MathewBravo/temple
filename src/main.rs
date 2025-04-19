@@ -1,5 +1,5 @@
 use clap::Parser;
-use tracing::Level;
+use tracing::{error, Level};
 use tracing_subscriber::FmtSubscriber;
 
 use cli::{Cli, Commands};
@@ -27,6 +27,6 @@ fn main() {
         Some(Commands::Init { template }) => {
             println!("Initializing template: {:?}", template)
         }
-        None => println!("Debug: No Command Given!"),
+        None => error!("no command given"),
     }
 }
